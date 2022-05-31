@@ -1,0 +1,88 @@
+@use 'mixin';
+.purchase-detail {
+    .car-detail {
+        &.details {
+            .image {
+                margin-top: $j-spacing-small*4;
+                img {
+                    width: $j-width-base*4;
+                }
+            }
+            .detail {
+                .features {
+                    h4 {
+                        @include mixin.font-base($j-font-large + 4, $j-line-height-base*1.5, 600);
+                    }
+                    ul {
+                        padding: {
+                            left: $j-spacing-small*2;
+                            right: $j-spacing-medium*2;
+                        }
+                        max-height: mixin.pixeltoRem(120);
+                        overflow: auto;
+                        li {
+                            @include mixin.font-base($j-font-base, $j-line-height-base, 300);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .image-library {
+        h4 {
+            @include mixin.font-base($j-font-large + 4, $j-line-height-base*1.5, 600);
+        }
+        &-section {
+            @include mixin.flex-align-center;
+            flex-wrap: wrap;
+            margin: {
+                left: - $j-spacing-medium;
+                right: - $j-spacing-medium;
+            }
+            .item {
+                width: $j-width-base - 5;
+                margin-bottom: $j-spacing-medium;
+                padding: {
+                    left: $j-spacing-medium;
+                    right: $j-spacing-medium;
+                }
+                img {
+                    width: $j-width-base*4;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-md) {
+    .purchase-detail {
+        .car-detail {
+            &.details {
+                .detail {
+                    .features {
+                        margin-top: $j-spacing-medium;
+                    }
+                }
+            }
+        }
+        .image-library {
+            &-section {
+                .item {
+                    width: $j-width-base *2;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .purchase-detail {
+        .image-library {
+            &-section {
+                .item {
+                    width: $j-width-base*4;
+                }
+            }
+        }
+    }
+}

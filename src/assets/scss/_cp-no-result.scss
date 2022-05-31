@@ -1,0 +1,22 @@
+@use 'mixin';
+.favourite-empty-list {
+    @include mixin.flex-align-center;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: $j-spacing-large * 3;
+    h4 {
+        margin-bottom: $j-spacing-small*2;
+        i {
+            font-size: $j-font-small*6;
+            color: $j-primary;
+        }
+    }
+    h5 {
+        @include mixin.font-base($j-font-large, $j-line-height-base*1.5, 600);
+        margin-bottom: $j-spacing-medium;
+    }
+    p {
+        @include mixin.font-base($j-font-base+2);
+        margin-bottom: $j-spacing-medium;
+    }
+}

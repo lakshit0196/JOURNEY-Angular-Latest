@@ -1,0 +1,37 @@
+@use 'mixin';
+.helpful-articles-section {
+    margin-bottom: $j-spacing-large*3;
+    .helpful-articles-detail {
+        ul {
+            @include mixin.common-ul-listing;
+            column-count: 3;
+            li {
+                margin-bottom: $j-spacing-medium;
+                a {
+                    color: $j-black;
+                    @include mixin.font-base;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:$tablet-md) {
+    .helpful-articles-section {
+        .helpful-articles-detail {
+            ul {
+                column-count: 2;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:$tablet) {
+    .helpful-articles-section {
+        .helpful-articles-detail {
+            ul {
+                column-count: 1;
+            }
+        }
+    }
+}

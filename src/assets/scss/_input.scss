@@ -1,0 +1,152 @@
+@use 'mixin';
+// checkbox
+.checkbox {
+    @include mixin.flex-align-center;
+    position: relative;
+    padding-left: $j-spacing-large;
+    margin-bottom: 0;
+    cursor: pointer;
+    @include mixin.font-base($j-font-base, $j-line-height-base, 400);
+    color: $j-primary;
+    @include mixin.prefix(user-select, none, ms moz webkit);
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        &:checked~.checkmark {
+            border-color: $j-primary;
+            &:after {
+                display: block;
+            }
+        }
+    }
+    .checkmark {
+        position: absolute;
+        left: 0;
+        height: mixin.pixeltoRem(16);
+        width: mixin.pixeltoRem(16);
+        border: 2px solid $j-border;
+        border-radius: $j-spacing-extra-small - 3;
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        &:after {
+            left: mixin.pixeltoRem(4);
+            top: mixin.pixeltoRem(1);
+            width: $j-spacing-extra-small - 1;
+            height: $j-spacing-small - 2;
+            border: solid $j-primary;
+            border-width: 0 2px 2px 0;
+            @include mixin.prefix(transform, rotate(45deg), ms webkit);
+        }
+    }
+}
+
+// range slider
+.range {
+    &-selector {
+        .price-slider {
+            text-align: center;
+            @include mixin.flex-align-center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .separation {
+                width: mixin.pixeltoRem(16);
+                height: mixin.pixeltoRem(2);
+                background: $j-border;
+                margin: 0 $j-spacing-medium;
+            }
+        }
+        input[type=range] {
+            appearance: none;
+            width: $j-width-base*4;
+            padding: 0 $j-spacing-extra-small - 3;
+            background: linear-gradient($j-scroll, $j-scroll) no-repeat center;
+            background-size: 100% 2px;
+            pointer-events: none;
+            &:active,
+            &:focus {
+                outline: none;
+            }
+            &::-webkit-slider-thumb {
+                width: mixin.pixeltoRem(22);
+                height: mixin.pixeltoRem(22);
+                border-radius: $j-spacing-medium;
+                background-color: $j-white;
+                position: relative;
+                margin: $j-spacing-extra-small 0;
+                cursor: pointer;
+                appearance: none;
+                pointer-events: all;
+                border: 2px solid $j-primary;
+                &::before {
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    top: mixin.pixeltoRem(13);
+                    left: $j-width-base*4;
+                    width: mixin.pixeltoRem(2000);
+                    height: mixin.pixeltoRem(2);
+                }
+            }
+        }
+        .slider-price {
+            padding: $j-spacing-small - 2 $j-spacing-small;
+            width: mixin.pixeltoRem(78);
+            border: 1px solid $j-secondary;
+            color: $j-secondary;
+            @include mixin.font-base($j-font-base - 1, $j-line-height-small * 2, 300);
+        }
+    }
+    &-slider {
+        margin-top: $j-spacing-small;
+        .multi-range {
+            position: relative;
+            height: 50px;
+            display: block;
+            input[type=range] {
+                position: absolute;
+                &:nth-child(1) {
+                    &::-webkit-slider-thumb::before {
+                        background-color: red;
+                    }
+                }
+                &:nth-child(2) {
+                    background: none;
+                    &::-webkit-slider-thumb::before {
+                        background-color: grey;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//textbox
+.textbox {
+    background: $j-white;
+    border: 0.5px solid $j-border;
+    border-radius: $j-spacing-small + 2;
+    padding: $j-spacing-small $j-spacing-medium;
+    p {
+        @include mixin.font-base($j-font-base, $j-line-height-base, 300);
+        margin-bottom: 0;
+    }
+    input {
+        background: transparent;
+        width: $j-width-base * 4;
+        border: none;
+        @include mixin.font-base;
+        @include mixin.transition;
+        &:focus {
+            outline: none;
+            background: $j-certification;
+            border-radius: $j-spacing-extra-small;
+            padding: 0 $j-spacing-small;
+        }
+    }
+}

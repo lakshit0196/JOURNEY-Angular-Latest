@@ -1,0 +1,763 @@
+<nav class="navbar sticky">
+    <div class="container-fluid">
+        <div class="navbar-item">
+            <div class="logo">
+                <a href="index.html" class="logo">
+                    <img src="assets/image/logo/logo.svg" alt="Logo">
+                </a>
+                <a href="index.html" class="white">
+                    <img src="assets/image/logo/logo-white.svg" alt="Logo">
+                </a>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li>
+                        <a href="">Customer Support</a>
+                    </li>
+                    <li>
+                        <button id="modal" (click)="openSignInModal()">Sign in</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-button">
+                <a href="javascript:void(0)" onclick="MenuButton()">
+                    <div class="menu">
+                        <img src="assets/image/icon/menu-icon.svg" alt="Icon">
+                        <img class="white" src="assets/image/icon/menu-white-icon.svg" alt="Icon">
+                    </div>
+                    <div class="close d-none">
+                        <img src="assets/image/icon/close-icon.svg" alt="Icon">
+                        <img class="white" src="assets/image/icon/close-white-icon.svg" alt="Icon">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- banner -->
+<div class="banner">
+    <div class="container">
+        <div class="banner-section">
+            <div class="head">
+                <h2>
+                    Your journey starts here
+                </h2>
+                <div class="sticky-searchbar">
+                    <div class="searchbar">
+                        <div class="mobile">
+                            <a href="javascript:void(0)" onclick="SearchbarMobile()">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <span>What kind of vehicle are you looking for?</span>
+                            </a>
+                        </div>
+                        <div class="searchbar-section">
+                            <div class="search-back">
+                                <a href="javascript:void(0)" onclick="SearchBack()">
+                                    <img src="assets/image/icon/back-arrow.svg" alt="Back Icon" />
+                                    <span>Back</span>
+                                </a>
+                            </div>
+                            <div class="list" id="known">
+                                <a href="javascript:void(0)" onclick="KnownSearch()"> I know what I&#39;m looking
+                                    for
+                                </a>
+                                <p class="mobile-search">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <span>Search</span>
+                                </p>
+                            </div>
+                            <div class="list" id="discover">
+                                <a href="javascript:void(0)" onclick="DiscoverySearch()"> I&#39;m open for discovery
+                                </a>
+                                <p class="mobile-search">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <span>Search</span>
+                                </p>
+                            </div>
+                            <div class="button">
+                                <a href="" class="">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <span>Search</span>
+                                </a>
+                            </div>
+                            <div class="queries">
+                                <div class="free-delivery">
+                                    <p>
+                                        FREE delivery for all online vehicle purchases <br />for Lower Mainland BC
+                                        Region
+                                    </p>
+                                </div>
+                                <div class="action">
+                                    <a href="">
+                                        <i class="fa-regular fa-comment-dots"></i>
+                                        <span>
+                                            Questions?
+                                        </span>
+                                    </a>
+                                    <a href="">
+                                        <i class="fa-regular fa-circle-user"></i>
+                                        <span>
+                                            Sign in
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search d-none" id="search-known">
+                            <div class="search-title">
+                                <h2>I know what I&#39;m looking for</h2>
+                            </div>
+                            <div class="search-section">
+                                <div class="model scrollable">
+                                    <div class="title">
+                                        <h4>Make & Model</h4>
+                                    </div>
+                                    <div class="list">
+                                        <div class="list-group">
+                                            <label class="checkbox">Acura
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">Alfa Romeo
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Audi
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                BMW
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Buick
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Cadillac
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Chevrolet
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Chrysler
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Dodge
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Acura
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Alfa Romeo
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vehicle scrollable">
+                                    <div class="title">
+                                        <h4>Vehicle Type</h4>
+                                    </div>
+                                    <div class="list">
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Coup
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Convertable
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Hatchback
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Minivan
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Sedan
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                SUV
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Truck
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Wagon
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        <h4>No. of Seats</h4>
+                                    </div>
+                                    <div class="list">
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                2
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                4
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                5
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                6
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                7+
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fuel scrollable">
+                                    <div class="title">
+                                        <h4>Fuel Type</h4>
+                                    </div>
+                                    <div class="list">
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Gas
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Diesel
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Hybrid
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Electric
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="title">
+                                        <h4>Transmition/Drivetrain</h4>
+                                    </div>
+                                    <div class="list">
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Automatic
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Manual
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                All Wheel Drive
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Four Wheel Drive
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Automatic
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="year">
+                                    <div class="range">
+                                        <div class="title">
+                                            <h4>Year</h4>
+                                        </div>
+                                        <div class="range-selector">
+                                            <div class="price-slider year-range">
+                                                <span class="slider-price min-price">2010</span>
+                                                <span class="separation"></span>
+                                                <span class="slider-price max-price">2016</span>
+                                            </div>
+                                            <div class="range-slider">
+                                                <span class="multi-range">
+                                                    <input type="range" min="2000" max="2022" value="2002"
+                                                        class="lower">
+                                                    <input type="range" min="2000" max="2022" value="2016"
+                                                        class="upper">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="range">
+                                        <div class="title">
+                                            <h4>Kilometers</h4>
+                                        </div>
+                                        <div class="range-selector">
+                                            <div class="price-slider kilometers-range">
+                                                <span class="slider-price min-price">15000</span>
+                                                <span class="separation"></span>
+                                                <span data-max="100000" class="slider-price max-price">50000</span>
+                                            </div>
+                                            <div class="range-slider">
+                                                <span class="multi-range">
+                                                    <input type="range" min="2000" max="2022" value="2002"
+                                                        class="lower">
+                                                    <input type="range" min="2000" max="2022" value="2016"
+                                                        class="upper">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <div class="range">
+                                        <div class="title">
+                                            <h4>Price</h4>
+                                        </div>
+                                        <div class="mode">
+                                            <ul>
+                                                <li>
+                                                    <a href="" class="active"> Financing </a>
+                                                </li>
+                                                <li>
+                                                    <a href=""> Cash </a>
+                                                </li>
+                                            </ul>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Down payment" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="range">
+                                        <div class="range-selector">
+                                            <h5>Monthly Payment</h5>
+                                            <div class="price-slider payment-range">
+                                                <span class="slider-price min-price">2500</span>
+                                                <span class="separation"></span>
+                                                <span data-max="10000" class="slider-price max-price">5000</span>
+                                            </div>
+                                            <div class="range-slider">
+                                                <span class="multi-range">
+                                                    <input type="range" min="2000" max="2022" value="2002"
+                                                        class="lower">
+                                                    <input type="range" min="2000" max="2022" value="2016"
+                                                        class="upper">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="color scrollable">
+                                    <div class="title">
+                                        <h4>Colour</h4>
+                                    </div>
+                                    <div class="color-box">
+                                        <a href="">
+                                            <span style="background: black"></span>
+                                            <p>Black</p>
+                                        </a>
+                                    </div>
+                                    <div class="color-box">
+                                        <a href="">
+                                            <span style="background: gray"></span>
+                                            <p>Grey</p>
+                                        </a>
+                                    </div>
+                                    <div class="color-box">
+                                        <a href="">
+                                            <span style="background: silver"></span>
+                                            <p>Silver</p>
+                                        </a>
+                                    </div>
+                                    <div class="color-box">
+                                        <a href="">
+                                            <span style="background: red"></span>
+                                            <p>Red</p>
+                                        </a>
+                                    </div>
+                                    <div class="color-box">
+                                        <a href="">
+                                            <span style="background: blue"></span>
+                                            <p>Blue</p>
+                                        </a>
+                                    </div>
+                                    <div class="color-box">
+                                        <a href="">
+                                            <span style="background: pink"></span>
+                                            <p>Pink</p>
+                                        </a>
+                                    </div>
+                                    <div class="color-box">
+                                        <a href="">
+                                            <span style="background: orange"></span>
+                                            <p>Orange</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-button">
+                                <a href="" class="btn btn-primary btn-large rounded w-100">
+                                    <img src="assets/image/icon/search-icon.svg" alt="Icon" /> Find my vehicle!
+                                </a>
+                            </div>
+                        </div>
+                        <div class="search d-none" id="search-discover">
+                            <div class="search-title">
+                                <h2>I&#39;m open for discovery</h2>
+                            </div>
+                            <div class="search-section">
+                                <div class="lifestyle scrollable">
+                                    <div class="title">
+                                        <h4>What best describes your lifestyle?</h4>
+                                    </div>
+                                    <div class="list">
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Adventurist
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Expressionist
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Explorer
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Family-focused
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Rough & Rugged
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Suburbanite
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Technologist
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Metropolitan
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="value scrollable">
+                                    <div class="title">
+                                        <h4>What do you value the most?</h4>
+                                    </div>
+                                    <div class="list">
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Comfort
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Economy
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Practicality
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Prestige
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Quality
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Relability
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Statbility
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Off-Road
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fits scrollable">
+                                    <div class="title">
+                                        <h4>What fits within your needs?</h4>
+                                    </div>
+                                    <div class="list">
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Dependability
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Budget
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Heavy Duty
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Luxury
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Power
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Safety
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Space & Room
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="list-group">
+                                            <label class="checkbox">
+                                                Versatility
+                                                <input type="checkbox" />
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <div class="range">
+                                        <div class="title">
+                                            <h4>Price</h4>
+                                        </div>
+                                        <div class="mode">
+                                            <ul>
+                                                <li>
+                                                    <a href="" class="active"> Financing </a>
+                                                </li>
+                                                <li>
+                                                    <a href=""> Cash </a>
+                                                </li>
+                                            </ul>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Down payment" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="range">
+                                        <div class="range-selector">
+                                            <h5>Monthly Payment</h5>
+                                            <div class="price-slider payment-range">
+                                                <span class="slider-price min-price">2500</span>
+                                                <span class="separation"></span>
+                                                <span data-max="10000" class="slider-price max-price">5000</span>
+                                            </div>
+                                            <div class="range-slider">
+                                                <span class="multi-range">
+                                                    <input type="range" min="2000" max="2022" value="2002"
+                                                        class="lower">
+                                                    <input type="range" min="2000" max="2022" value="2016"
+                                                        class="upper">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-button">
+                                <a href="" class="btn btn-primary btn-large rounded w-100">
+                                    <img src="assets/image/icon/search-icon.svg" alt="Icon" /> Find my vehicle!
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <img src="assets/image/icon/banner-check.svg" alt="Icon" />
+                <h4>
+                    Purchase your vehicle and have it delivered to your doorstep to keep or return. It&#39;s that
+                    simple.
+                </h4>
+            </div>
+            <div class="action">
+                <p>
+                    Looking to get pre-qualified?
+                </p>
+                <a href="search-vehicle.html" class="btn btn-primary">Let&#39;s get started</a>
+            </div>
+        </div>
+    </div>
+</div>

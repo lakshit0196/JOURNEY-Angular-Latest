@@ -1,0 +1,110 @@
+@import "_var";
+
+// font styling
+@mixin font-base($size: $j-font-base, $height: $j-line-height-base, $font-weight: 500) {
+    font-size: $size;
+    line-height: pixeltoRem($height);
+    font-weight: $font-weight;
+}
+
+//prefix
+@mixin prefix($property, $value, $prefixes) {
+    @each $prefix in $prefixes {
+        -#{$prefix}-#{$property}: $value;
+    }
+
+    #{$property}: $value;
+}
+
+// button styling
+@mixin button-styling {
+    border-radius: $j-spacing-small;
+    @include font-base;
+    padding: $j-spacing-small + 1 calc($j-spacing-small * 3);
+}
+
+@mixin button-hover {
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus:active {
+        @content;
+    }
+}
+
+// absolute position
+@mixin position($top: 0, $right: 0, $bottom: 0, $left: 0) {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// flex align center
+@mixin flex-align-center($align-items: center, $display: flex) {
+    align-items: $align-items;
+    display: $display;
+}
+
+//ul styling
+@mixin common-ul-listing {
+    list-style-type: none;
+    padding-left: 0;
+
+    margin: {
+        top: 0;
+        bottom: 0;
+    }
+}
+
+@mixin transition {
+    @include prefix(transition, all 350ms ease, moz webkit);
+}
+
+@mixin button-styling($background: $j-primary, $color: $j-white) {
+    background: $background;
+    color: $color;
+}
+
+@mixin button-after($background: $j-primary, $border-color: $j-primary, $width: $j-width-base * 4, $z-index: -2) {
+    background-color: $background;
+    border-color: $border-color;
+    width: $width;
+    z-index: $z-index;
+}
+
+@mixin button-before-after {
+    overflow: hidden;
+    z-index: 1;
+    display: inline-block;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: $j-width-base * 4;
+        border-radius: $j-spacing-small + 2;
+        @include transition;
+    }
+
+    &:hover,
+    &.active {
+        color: $j-white;
+        text-decoration: none;
+
+        &:before,
+        &:after {
+            width: $j-width-base * 4;
+        }
+    }
+}
+
+// px to rem
+@function pixeltoRem($value) {
+    $rem: calc($value/16) + rem;
+    @return $rem;
+}

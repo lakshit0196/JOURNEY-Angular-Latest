@@ -1,0 +1,161 @@
+@use 'mixin';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Nunito";
+    color: $j-secondary;
+    -webkit-text-size-adjust: $j-width-base * 4;
+    margin: 0;
+}
+
+* {
+    ::-webkit-scrollbar {
+        width: $j-spacing-small - 2;
+        height: $j-spacing-small - 2;
+
+        &-track {
+            box-shadow: none;
+            background: $j-white;
+        }
+
+        &-thumb {
+            background-color: $j-primary-dark;
+            outline: none;
+            border-radius: $j-spacing-small;
+        }
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.container,
+.container-fluid {
+    width: $j-width-base * 4;
+
+    padding: {
+        right: $j-spacing-medium;
+        left: $j-spacing-medium;
+    }
+
+    margin: {
+        right: auto;
+        left: auto;
+    }
+}
+
+.section-padding {
+    padding: $j-spacing-medium*4 0;
+}
+
+a {
+    text-decoration: none;
+    color: $j-primary;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+
+    &:hover {
+        color: $j-primary-medium;
+    }
+
+    &:focus {
+        color: $j-primary-dark;
+    }
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.w-100 {
+    width: $j-width-base * 4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+}
+
+p {
+    margin-top: 0;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: mixin.pixeltoRem(20);
+    right: mixin.pixeltoRem(20);
+    z-index: 99;
+    font-size: $j-font-base+2;
+    border: none;
+    outline: none;
+    background-color: $j-primary;
+    color: $j-white;
+    cursor: pointer;
+    padding: $j-spacing-small $j-spacing-small+2;
+    border-radius: $j-spacing-extra-small;
+    @include mixin.transition;
+
+    &:hover {
+        background-color: $j-primary-dark;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media (min-width: $mobile) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: $tablet) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: $tablet-md) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: $desktop) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: $large-screen) {
+    .container {
+        max-width: 1320px;
+    }
+}

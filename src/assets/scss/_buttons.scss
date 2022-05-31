@@ -1,0 +1,69 @@
+@use 'mixin';
+
+.btn {
+    border-radius: $j-spacing-small - 3;
+    padding: $j-spacing-medium $j-spacing-small * 2;
+    color: $j-white;
+    @include mixin.transition;
+    position: relative;
+    @include mixin.flex-align-center;
+    justify-content: center;
+    outline: none;
+    border-width: 0;
+    @include mixin.font-base;
+
+    &-primary {
+        @include mixin.button-before-after;
+
+        &:before {
+            @include mixin.button-after($j-primary-dark, $j-primary-dark, 0, -1);
+        }
+
+        &:after {
+            @include mixin.button-after;
+        }
+
+        img {
+            margin-right: $j-spacing-large;
+        }
+
+        &.rounded {
+            &:before {
+                border-radius: $j-spacing-medium * 3;
+            }
+
+            &:after {
+                border-radius: $j-spacing-medium * 3;
+            }
+        }
+    }
+
+    &-large {
+        @include mixin.font-base($j-font-large + 1, $j-line-height-base * 1.5, 600);
+    }
+
+    &-gray {
+        @include mixin.button-before-after;
+        padding: $j-spacing-large $j-spacing-medium * 2;
+        color: $j-secondary;
+        border-radius: 0;
+
+        &:before {
+            @include mixin.button-after($j-primary, $j-primary, 0, -1);
+            border-radius: 0;
+        }
+
+        &:after {
+            @include mixin.button-after($j-certification, $j-certification);
+            border-radius: 0;
+        }
+    }
+}
+
+.rounded {
+    border-radius: $j-spacing-medium * 3;
+}
+
+button {
+    background: transparent;
+}

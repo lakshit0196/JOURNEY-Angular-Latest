@@ -1,0 +1,46 @@
+@use 'mixin';
+.documents-section {
+    .documents-item {
+        @include mixin.flex-align-center;
+        flex-wrap: wrap;
+        margin-bottom: $j-spacing-medium*3;
+        .item {
+            @include mixin.flex-align-center;
+            justify-content: space-between;
+            background: $j-ul-bg;
+            padding: $j-spacing-small+1 $j-spacing-medium+3;
+            width: calc(33.33% - $j-spacing-medium*2);
+            margin: {
+                left: $j-spacing-medium;
+                right: $j-spacing-medium;
+                bottom: $j-spacing-medium;
+            }
+            .detail {
+                padding-right: $j-spacing-large;
+                h4 {
+                    margin-bottom: 0;
+                    @include mixin.font-base($j-font-base+2, $j-line-height-base, 600);
+                }
+                p {
+                    @include mixin.font-base($j-font-base - 2, $j-line-height-base - 2, 600);
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:$tablet-md) {
+    .documents-section {
+        margin-bottom: $j-spacing-large*2;
+        .documents-item {
+            .item {
+                width: $j-width-base*4;
+                margin: {
+                    left: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+}

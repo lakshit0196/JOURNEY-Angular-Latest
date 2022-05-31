@@ -1,0 +1,65 @@
+@use 'mixin';
+.track-delivery-section {
+    margin-bottom: $j-spacing-large*3;
+    .track-delivery-detail {
+        @include mixin.flex-align-center(flex-start);
+        justify-content: space-around;
+        text-align: center;
+        position: relative;
+        .item {
+            @include mixin.flex-align-center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            width: 33.33%;
+            .icon {
+                height: mixin.pixeltoRem(57);
+                width: mixin.pixeltoRem(57);
+                @include mixin.flex-align-center;
+                justify-content: center;
+                margin-bottom: $j-spacing-medium;
+                &:before {
+                    content: "";
+                    height: $j-spacing-extra-small;
+                    width: $j-width-base*4;
+                    position: absolute;
+                    background: $j-primary;
+                    z-index: -1;
+                    left: $j-width-base*2;
+                }
+                &:after {
+                    content: "";
+                    width: mixin.pixeltoRem(31);
+                    height: mixin.pixeltoRem(31);
+                    background: $j-primary;
+                    border-radius: $j-width-base*2;
+                }
+            }
+            &:last-child {
+                .icon {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+            .content {
+                h5 {
+                    @include mixin.font-base($j-font-base, $j-line-height-base - 2, 600);
+                    margin-bottom: 0;
+                }
+                p {
+                    @include mixin.font-base($j-font-base, $j-line-height-base - 2, 400);
+                    margin-bottom: 0;
+                }
+            }
+            &.active {
+                .icon {
+                    &:after {
+                        width: mixin.pixeltoRem(57);
+                        height: mixin.pixeltoRem(57);
+                    }
+                }
+            }
+        }
+    }
+}

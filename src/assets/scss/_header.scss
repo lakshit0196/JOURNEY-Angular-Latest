@@ -1,0 +1,244 @@
+@use 'mixin';
+.navbar {
+    background: $j-white;
+    position: relative;
+    z-index: 9;
+    &-item {
+        @include mixin.flex-align-center;
+        justify-content: space-between;
+        padding: $j-spacing-small 0;
+        .logo {
+            a {
+                img {
+                    height: mixin.pixeltoRem(40);
+                }
+                &.white {
+                    display: none;
+                }
+            }
+        }
+        .nav-menu {
+            ul {
+                @include mixin.common-ul-listing;
+                @include mixin.flex-align-center;
+                li {
+                    @include mixin.font-base($j-font-base, $j-line-height-base - 2, 600);
+                    padding: 0 $j-spacing-small * 2;
+                    a {
+                        color: $j-secondary;
+                    }
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                    &.user {
+                        a {
+                            @include mixin.flex-align-center;
+                            img {
+                                margin-right: $j-spacing-extra-small;
+                            }
+                            span {
+                                @include mixin.font-base($j-font-base, $j-line-height-base, 800);
+                                color: $j-primary-extra-dark;
+                            }
+                            i {
+                                color: $j-primary;
+                                margin-left: $j-spacing-extra-small;
+                            }
+                        }
+                    }
+                }
+            }
+            &.mobile-menu {
+                display: block;
+                position: absolute;
+                left: 0;
+                top: mixin.pixeltoRem(77);
+                background: $j-white;
+                min-height: calc(100vh - 77px);
+                width: $j-width-base * 4;
+                overflow: auto;
+                @include mixin.flex-align-center;
+                justify-content: center;
+                padding: $j-spacing-small * 4 $j-spacing-medium;
+                ul {
+                    flex-direction: column;
+                    li {
+                        @include mixin.font-base($j-font-base + 2, $j-line-height-base - 2, 600);
+                        padding: $j-spacing-small * 2 0;
+                    }
+                }
+            }
+        }
+        .menu-button {
+            display: none;
+            a {
+                img {
+                    &.white {
+                        display: none;
+                    }
+                }
+                &:focus {
+                    text-decoration: none;
+                }
+                &.close {
+                    img {
+                        .white {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.sticky {
+        background: transparent;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        @include mixin.transition;
+        &.navbar-scroll {
+            background: $j-white;
+            @include mixin.transition;
+            .navbar {
+                &-item {
+                    .logo {
+                        a {
+                            &.logo {
+                                display: block;
+                            }
+                            &.white {
+                                display: none;
+                            }
+                        }
+                    }
+                    .nav {
+                        &-menu {
+                            ul {
+                                li {
+                                    a {
+                                        color: $j-secondary;
+                                    }
+                                    button {
+                                        color: $j-secondary;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .navbar {
+            &-item {
+                padding: $j-spacing-small*2 0;
+                .logo {
+                    a {
+                        &.logo {
+                            display: none;
+                        }
+                        &.white {
+                            display: block;
+                        }
+                    }
+                }
+                .nav-menu {
+                    ul {
+                        li {
+                            a {
+                                color: $j-white;
+                            }
+                            button {
+                                @include mixin.font-base($j-font-base, $j-line-height-base - 2, 600);
+                                padding: 0;
+                                background: transparent;
+                                border: none;
+                                color: $j-white;
+                                font-family: "Nunito";
+                                cursor: pointer;
+                                &:hover,
+                                &:focus {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                    &.mobile-menu {
+                        background: $j-black;
+                    }
+                }
+                .menu-button {
+                    a {
+                        img {
+                            display: none;
+                            &.white {
+                                display: block;
+                            }
+                        }
+                        &.close {
+                            img {
+                                display: none;
+                                .white {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-md) {
+    .navbar {
+        &-item {
+            .searchbar {
+                &-section {
+                    .list {
+                        padding: $j-spacing-small * 2;
+                    }
+                }
+            }
+            .nav-menu {
+                display: none;
+            }
+            .menu-button {
+                display: block;
+            }
+        }
+        &.sticky {
+            display: none;
+            .navbar {
+                &-item {
+                    .searchbar {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .navbar {
+        &-item {
+            flex-wrap: wrap;
+            .logo {
+                order: 1;
+                width: $j-width-base * 2;
+            }
+            .searchbar {
+                order: 3;
+                width: $j-width-base * 4;
+                margin-top: $j-spacing-medium;
+            }
+            .menu-button {
+                order: 2;
+                width: $j-width-base * 2;
+                @include mixin.flex-align-center;
+                justify-content: flex-end;
+            }
+        }
+    }
+}

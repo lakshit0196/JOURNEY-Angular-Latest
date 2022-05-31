@@ -1,0 +1,65 @@
+@use 'mixin';
+.purchase-detail {
+    .car-detail {
+        @include mixin.flex-align-center(flex-start);
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: {
+            left: $j-spacing-large * 2;
+            right: $j-spacing-large * 2;
+            bottom: $j-spacing-medium * 3;
+        }
+        .image {
+            .search-list {
+                padding-bottom: 0;
+                .tile {
+                    width: $j-width-base * 4;
+                    a {
+                        .tile-item {
+                            box-shadow: none;
+                            border: none !important;
+                            &:hover {
+                                box-shadow: none;
+                                border: none;
+                            }
+                            .content {
+                                padding: $j-spacing-medium 0;
+                                .detail {
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .detail {
+            padding: 0 $j-spacing-medium*2;
+            .item {
+                margin-bottom: $j-spacing-medium;
+                h4 {
+                    @include mixin.font-base($j-font-base+2, $j-line-height-base, 600);
+                    margin-bottom: 0;
+                }
+                p {
+                    @include mixin.font-base($j-font-base - 2, $j-line-height-base - 2, 600);
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .purchase-detail {
+        .car-detail {
+            margin: {
+                left: 0;
+                right: 0;
+            }
+            .detail {
+                padding: 0;
+            }
+        }
+    }
+}

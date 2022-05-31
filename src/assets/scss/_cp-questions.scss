@@ -1,0 +1,56 @@
+@use 'mixin';
+.questions-section {
+    margin-bottom: $j-spacing-large*3;
+    .questions-detail {
+        .search {
+            max-width: mixin.pixeltoRem(527);
+            border: 1px solid $j-secondary-medium;
+            padding: $j-spacing-small*2 $j-spacing-large;
+            margin: 0 auto;
+            border-radius: $j-spacing-large*2;
+            @include mixin.flex-align-center;
+            margin-bottom: $j-spacing-large*2;
+            .form-control {
+                padding: 0 0 0 $j-spacing-medium;
+                @include mixin.font-base;
+                border: none;
+                color: $j-secondary;
+                width: $j-width-base*4;
+                outline: none;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.faq-section {
+    background: $j-white;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    padding: $j-spacing-large*2 $j-spacing-large;
+    max-width: mixin.pixeltoRem(850);
+    .title {
+        @include mixin.flex-align-center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        h4 {
+            @include mixin.font-base($j-font-small*3, $j-line-height-small*4, 600);
+        }
+        p {
+            &.close {
+                i {}
+            }
+        }
+    }
+    .description {
+        max-height: mixin.pixeltoRem(300);
+        overflow: auto;
+        p {
+            @include mixin.font-base($j-font-base, $j-line-height-base, 400);
+            margin-bottom: $j-spacing-small*2;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

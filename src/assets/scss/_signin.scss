@@ -1,0 +1,132 @@
+@use 'mixin';
+.sign-in {
+    .title {
+        text-align: center;
+        margin-bottom: $j-spacing-large*2;
+        h4 {
+            margin-bottom: $j-spacing-extra-small;
+            @include mixin.font-base($j-font-large, $j-line-height-base*1.5, 600);
+        }
+        p {
+            @include mixin.font-base($j-font-base, $j-line-height-base, 400);
+            margin-bottom: 0;
+        }
+    }
+    .forgot {
+        text-align: center;
+        margin-bottom: $j-spacing-large*2;
+        p {
+            a {}
+        }
+    }
+    .message {
+        margin-bottom: $j-spacing-large*2;
+        text-align: center;
+        p {
+            @include mixin.font-base($j-font-base+2, $j-line-height-base, 600);
+        }
+    }
+    .form {
+        @include mixin.flex-align-center;
+        flex-wrap: wrap;
+        margin-bottom: $j-spacing-large*2;
+        margin: {
+            left: - $j-spacing-medium;
+            right: - $j-spacing-medium;
+        }
+        .form-group {
+            margin-bottom: $j-spacing-small+2;
+            padding: {
+                left: $j-spacing-medium;
+                right: $j-spacing-medium;
+            }
+            &.half {
+                width: $j-width-base*2;
+            }
+            &.full {
+                width: $j-width-base*4;
+            }
+        }
+        >p {
+            @include mixin.font-base($j-font-base - 2, $j-line-height-small*2, 400);
+            color: $j-border;
+            padding: {
+                left: $j-spacing-medium;
+                right: $j-spacing-medium;
+            }
+        }
+    }
+    .button {
+        @include mixin.flex-align-center;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: $j-spacing-medium;
+        .btn-facebook {
+            background-color: $j-facebook;
+            cursor: pointer;
+        }
+        .btn-google {
+            color: $j-secondary;
+            border: 1px solid $j-border;
+            cursor: pointer;
+        }
+    }
+    .or-separation {
+        position: relative;
+        margin: $j-spacing-medium*3 0;
+        text-align: center;
+        p {
+            display: inline-block;
+            background: $j-white;
+            margin-bottom: 0;
+            background: $j-white;
+            padding: 0 $j-spacing-medium*2;
+            position: relative;
+            z-index: 9;
+        }
+        &:after {
+            content: "";
+            height: 1px;
+            width: $j-width-base*4;
+            background: $j-border;
+            position: absolute;
+            left: mixin.pixeltoRem(20);
+            right: mixin.pixeltoRem(20);
+            top: mixin.pixeltoRem(12);
+            z-index: 1;
+            opacity: 0.5;
+        }
+    }
+    .declaration {
+        margin-top: $j-spacing-large*3;
+        font-family: $j-font-family-heebo;
+        p {
+            @include mixin.font-base($j-font-base - 1, $j-line-height-small*2, 500);
+            margin-bottom: 0;
+        }
+        ul {
+            padding-left: $j-spacing-medium;
+            margin-bottom: 0;
+            li {
+                @include mixin.font-base($j-font-base - 2, $j-line-height-small*2, 400);
+            }
+        }
+    }
+    &.login {
+        .form {
+            margin-bottom: $j-spacing-large;
+        }
+    }
+}
+
+@media screen and (max-width:$tablet-md) {
+    .sign-in {
+        .form {
+            .form-group {
+                &.half {
+                    width: $j-width-base*4;
+                }
+            }
+        }
+    }
+}

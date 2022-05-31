@@ -1,0 +1,686 @@
+@use 'mixin';
+
+.vehicle-view {
+    position: relative;
+
+    .image {
+        img {
+            width: $j-width-base * 4;
+            max-height: calc(100vh - 109px);
+            min-height: mixin.pixeltoRem(600);
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .detail {
+        position: absolute;
+        top: mixin.pixeltoRem(35);
+        left: mixin.pixeltoRem(35);
+
+        .share {
+            a {
+                color: $j-secondary;
+                margin-right: $j-spacing-small;
+                text-decoration: none;
+
+                i {
+                    font-size: $j-font-base + 2;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        h2 {
+            @include mixin.font-base($j-font-small * 5, $j-line-height-base * 3, 700);
+            margin-bottom: 0;
+        }
+
+        h3 {
+            @include mixin.font-base($j-font-small * 4, $j-line-height-medium * 3.5, 700);
+            margin-bottom: $j-spacing-medium * 2;
+        }
+
+        h4 {
+            @include mixin.font-base($j-font-large + 4, $j-line-height-base * 1.5, 400);
+            margin-bottom: $j-spacing-small;
+        }
+
+        p {
+            @include mixin.font-base($j-font-small * 2, $j-line-height-base, 400);
+            margin-bottom: $j-spacing-small * 2;
+        }
+    }
+
+    .expand {
+        position: absolute;
+        top: mixin.pixeltoRem(35);
+        right: mixin.pixeltoRem(30);
+
+        a {
+            color: $j-secondary;
+
+            i {
+                font-size: $j-font-base + 2;
+            }
+        }
+    }
+
+    .toggle-box {
+        position: absolute;
+        bottom: mixin.pixeltoRem(80);
+        left: 0;
+        right: 0;
+        @include mixin.flex-align-center;
+        justify-content: center;
+
+        .btn-toggle {
+            .switch {
+                &.btn-color-mode-switch {
+                    input {
+                        &[type="checkbox"] {
+                            opacity: 0;
+                            position: absolute;
+
+                            &:checked+label.btn-color-mode-switch-inner {
+                                &:after {
+                                    content: attr(data-on);
+                                    left: mixin.pixeltoRem(114);
+                                }
+
+                                &:before {
+                                    content: attr(data-off);
+                                    right: auto;
+                                    left: mixin.pixeltoRem(20);
+                                }
+                            }
+                        }
+                    }
+
+                    label {
+                        @include mixin.font-base($j-font-small * 2, $j-line-height-base * 1.5, 600);
+
+                        &.btn-color-mode-switch-inner {
+                            margin: 0;
+                            width: mixin.pixeltoRem(240);
+                            height: mixin.pixeltoRem(50);
+                            background: $j-gray-light;
+                            border-radius: $j-spacing-large;
+                            overflow: hidden;
+                            position: relative;
+                            display: block;
+                            cursor: pointer;
+
+                            &:before {
+                                content: attr(data-on);
+                                position: absolute;
+                                top: mixin.pixeltoRem(7);
+                                right: mixin.pixeltoRem(20);
+                                color: $j-secondary-medium;
+                            }
+
+                            &:after {
+                                content: attr(data-off);
+                                color: $j-white;
+                                background: $j-primary;
+                                border-radius: $j-spacing-large;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                text-align: center;
+                                @include mixin.transition;
+                                padding: $j-spacing-extra-small + 2 $j-spacing-medium * 2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.vehicle-tabs {
+    padding: $j-spacing-large * 3 0;
+
+    .tab {
+        display: none;
+        padding: $j-spacing-large * 3 0;
+
+        &-menu {
+            ul {
+                @include mixin.common-ul-listing;
+                @include mixin.flex-align-center;
+                justify-content: center;
+
+                li {
+                    padding: 0 $j-spacing-small * 2;
+
+                    a {
+                        color: $j-secondary;
+                        text-decoration: none;
+                        display: block;
+                        @include mixin.transition;
+
+                        &.active-a {
+                            color: $j-primary;
+
+                            label {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        span {
+                            &.icon {
+                                display: block;
+                                height: mixin.pixeltoRem(43);
+                                width: $j-width-base * 4;
+                                @include mixin.flex-align-center;
+                                justify-content: center;
+
+                                &:after {
+                                    content: "";
+
+                                    background: {
+                                        repeat: no-repeat;
+                                        position: center;
+                                    }
+
+                                    height: mixin.pixeltoRem(43);
+                                    width: mixin.pixeltoRem(43);
+                                    position: absolute;
+                                    @include mixin.transition;
+                                }
+                            }
+                        }
+
+                        label {
+                            @include mixin.font-base($j-font-large, $j-line-height-base * 2, 600);
+                            cursor: pointer;
+                        }
+
+                        &:hover {
+                            @include mixin.transition;
+
+                            label {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                    &:nth-child(1) {
+                        a {
+                            span {
+                                &.icon {
+                                    &:after {
+                                        background-image: url("../image/icon/highlight-icon.svg");
+                                    }
+                                }
+                            }
+
+                            &.active-a {
+                                span {
+                                    &.icon {
+                                        &:after {
+                                            background-image: url("../image/icon/highlight-icon-green.svg");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        a {
+                            span {
+                                &.icon {
+                                    &:after {
+                                        background-image: url("../image/icon/specs-icon.svg");
+                                    }
+                                }
+                            }
+
+                            &.active-a {
+                                span {
+                                    &.icon {
+                                        &:after {
+                                            background-image: url("../image/icon/specs-icon-green.svg");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        a {
+                            span {
+                                &.icon {
+                                    &:after {
+                                        background-image: url("../image/icon/pricing-icon.svg");
+                                    }
+                                }
+                            }
+
+                            &.active-a {
+                                span {
+                                    &.icon {
+                                        &:after {
+                                            background-image: url("../image/icon/pricing-icon-green.svg");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &:nth-child(4) {
+                        a {
+                            span {
+                                &.icon {
+                                    &:after {
+                                        background-image: url("../image/icon/inspection-icon.svg");
+                                    }
+                                }
+                            }
+
+                            &.active-a {
+                                span {
+                                    &.icon {
+                                        &:after {
+                                            background-image: url("../image/icon/inspection-icon-green.svg");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .detail {
+            text-align: center;
+            margin-bottom: $j-spacing-large * 3;
+
+            .title {
+                margin-bottom: $j-spacing-medium * 2;
+
+                img {
+                    margin-bottom: $j-spacing-small;
+                }
+
+                h2 {
+                    @include mixin.font-base($j-font-large * 1.5, $j-line-height-medium * 3.5, 600);
+                    margin-bottom: 0;
+                }
+            }
+
+            .text {
+                margin-bottom: $j-spacing-medium * 2;
+
+                p {
+                    margin-bottom: 0;
+
+                    i {
+                        color: $j-gray-light;
+                        font-size: $j-font-large - 4;
+
+                        &.active {
+                            color: $j-primary;
+                        }
+                    }
+                }
+
+                h4 {
+                    @include mixin.font-base($j-font-large, $j-line-height-medium * 3, 400);
+                    font-family: $j-font-family-heebo;
+                    margin-bottom: 0;
+
+                    &.active {
+                        color: $j-primary;
+                    }
+                }
+            }
+        }
+
+        .lifestyle {
+            text-align: center;
+            max-width: mixin.pixeltoRem(750);
+            margin: 0 auto;
+
+            h2 {
+                @include mixin.font-base($j-font-large * 1.5, $j-line-height-medium * 3.5, 600);
+                margin-bottom: $j-spacing-small * 4;
+            }
+
+            ul {
+                @include mixin.common-ul-listing;
+                @include mixin.flex-align-center;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-bottom: $j-spacing-large * 2;
+
+                li {
+                    border: 1px solid $j-border-light;
+                    @include mixin.font-base;
+                    padding: $j-spacing-extra-small $j-spacing-medium * 2;
+                    font-family: $j-font-family-heebo;
+                    border-radius: $j-spacing-large;
+                    margin: 0 $j-spacing-small;
+                }
+            }
+
+            p {
+                @include mixin.font-base($j-font-extra-large - 4, $j-line-height-medium * 3, 700);
+                margin-bottom: 0;
+            }
+        }
+
+        .specs,
+        .pricing,
+        .inspection {
+            @include mixin.flex-align-center(flex-start);
+            flex-wrap: wrap;
+
+            margin: {
+                left: - $j-spacing-medium;
+                right: - $j-spacing-medium;
+            }
+
+            .tile {
+                padding: 0 $j-spacing-medium;
+
+                ul {
+                    li {
+                        @include mixin.font-base($j-font-base + 1, $j-line-height-base+1, 300);
+                        font-family: $j-font-family-heebo;
+                        margin-bottom: $j-spacing-extra-small;
+                    }
+                }
+
+                h4 {
+                    @include mixin.font-base($j-spacing-large, $j-line-height-base * 1.5, 600);
+                    margin-bottom: $j-spacing-medium;
+                }
+
+                h5 {
+                    @include mixin.font-base($j-font-base + 1, $j-line-height-base+1, 700);
+                    margin-bottom: $j-spacing-small;
+                }
+
+                p {
+                    @include mixin.font-base($j-font-base + 1, $j-line-height-base+1, 300);
+                    margin-bottom: $j-spacing-extra-small;
+
+                    a {
+                        font-weight: 700;
+                        color: $j-primary;
+                    }
+                }
+
+                .details {
+                    margin-bottom: $j-spacing-large;
+                }
+            }
+        }
+
+        .specs {
+            .tile {
+                width: $j-width-base;
+
+                .details {
+                    margin-bottom: $j-spacing-large;
+                }
+            }
+        }
+
+        .pricing {
+            .tile {
+                width: 33.33%;
+                text-align: center;
+
+                h3 {
+                    @include mixin.font-base($j-font-extra-large - 2, $j-line-height-base*3, 700);
+                    font-family: $j-font-family-heebo;
+                    margin-bottom: 0;
+                }
+
+                ul {
+                    @include mixin.common-ul-listing;
+                    margin-bottom: $j-spacing-medium*2;
+                }
+
+                p {
+                    margin-bottom: $j-spacing-medium;
+
+                    &:last-child {
+                        margin-bottom: $j-spacing-large;
+                    }
+                }
+
+                .total {
+                    h5 {
+                        @include mixin.font-base($j-font-extra-large - 2, $j-line-height-base*3, 700);
+                        font-family: $j-font-family-heebo;
+                        margin-bottom: 0;
+
+                        &.final {
+                            border-top: 1px solid $j-secondary;
+                        }
+                    }
+                }
+            }
+        }
+
+        .inspection {
+            .tile {
+                width: 33.33%;
+                text-align: center;
+
+                p {
+                    margin-bottom: $j-spacing-large;
+
+                    label {
+                        font-weight: 700;
+                    }
+                }
+
+                .details {
+                    margin-bottom: $j-spacing-medium*3;
+
+                    p {
+                        &:first-child {
+                            margin-bottom: $j-spacing-small;
+                        }
+                    }
+                }
+
+                .quality {
+                    ul {
+                        @include mixin.common-ul-listing;
+
+                        li {
+                            @include mixin.flex-align-center;
+                            flex-direction: column;
+                            margin-bottom: $j-spacing-small*2;
+                            @include mixin.font-base($j-font-base + 2, $j-line-height-base+2, 600);
+
+                            i {
+                                color: $j-primary;
+                                margin-bottom: $j-spacing-small;
+                                font-size: $j-font-large;
+                            }
+                        }
+                    }
+                }
+
+                img {
+                    display: block;
+                    text-align: center;
+                    margin: 0 auto;
+                    margin-bottom: $j-spacing-medium*2;
+                }
+            }
+        }
+
+        &-active {
+            display: block;
+        }
+    }
+}
+
+.related-section {
+    padding: $j-spacing-large * 4 0;
+}
+
+@media screen and (max-width: $desktop) {
+    .vehicle-tabs {
+        .tab {
+            .specs {
+                .tile {
+                    width: $j-width-base*2;
+                    margin-bottom: $j-spacing-medium*2;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-md) {
+    .vehicle-view {
+        .toggle-box {
+            bottom: mixin.pixeltoRem(40);
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .vehicle-view {
+        margin-bottom: calc($j-spacing-large * 3) + 5;
+
+        .detail {
+            .share {
+                margin-bottom: $j-spacing-small;
+            }
+
+            h2 {
+                @include mixin.font-base($j-font-extra-large, $j-line-height-medium * 3, 700);
+            }
+
+            h3 {
+                font-size: $j-font-extra-large;
+                margin-bottom: $j-spacing-large;
+            }
+
+            h4 {
+                font-size: $j-font-large;
+            }
+
+            p {
+                margin-bottom: $j-spacing-small;
+            }
+        }
+
+        .toggle-box {
+            bottom: mixin.pixeltoRem(-80);
+            padding: $j-spacing-medium 0;
+            background: $j-white;
+            box-shadow: 0 0 12px rgb(0 0 0 / 10%);
+        }
+    }
+
+    .vehicle-tabs {
+        padding-bottom: 0;
+
+        .tab {
+            &-menu {
+                ul {
+                    li {
+                        padding: 0 $j-spacing-small - 2;
+
+                        a {
+                            label {
+                                @include mixin.font-base($j-font-base, $j-line-height-medium*2, 600);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .detail {
+                .title {
+                    h2 {
+                        @include mixin.font-base($j-font-large, $j-line-height-medium*2.5, 600);
+                    }
+                }
+            }
+
+            .lifestyle {
+                h2 {
+                    @include mixin.font-base($j-font-large, $j-line-height-medium*2.5, 600);
+                }
+
+                ul {
+                    li {
+                        margin: {
+                            bottom: $j-spacing-small;
+                            left: $j-spacing-extra-small;
+                            right: $j-spacing-extra-small;
+                        }
+                    }
+                }
+
+                p {
+                    @include mixin.font-base($j-font-large, $j-line-height-medium*2.5, 700);
+                }
+            }
+
+            .specs,
+            .pricing,
+            .inspection {
+
+                .tile {
+                    width: $j-width-base*4;
+                    margin-bottom: $j-spacing-medium*3;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .vehicle-view {
+        .image {
+            img {
+                min-height: mixin.pixeltoRem(500);
+            }
+        }
+
+        .detail {
+            h2 {
+                @include mixin.font-base($j-font-large, $j-line-height-medium * 2.5, 700);
+            }
+
+            h3 {
+                @include mixin.font-base($j-font-large + 4, $j-line-height-medium * 2.5, 700);
+                margin-bottom: $j-spacing-small * 2;
+            }
+
+            h4 {
+                font-size: $j-font-base + 4;
+                margin-bottom: $j-spacing-extra-small;
+            }
+
+            p {
+                margin-bottom: $j-spacing-medium;
+            }
+        }
+    }
+}
