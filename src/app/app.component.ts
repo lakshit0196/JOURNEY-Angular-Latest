@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'JOURNEY';
+  public onButtonClick(): void {
+    console.log("click");
+    alert("Kendo Angular UI Button was clicked.");
+  }
 }
